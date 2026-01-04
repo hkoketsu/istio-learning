@@ -173,15 +173,6 @@ istio-learning/
 └── README.md
 ```
 
-## v1 vs v2 Orders Service
-
-| Version | Response |
-|---------|----------|
-| v1 | `{"orders": [{"id": "1", "product": "Laptop", "status": "shipped"}]}` |
-| v2 | `{"orders": [{"id": "1", "product": "Laptop", "status": "shipped", "estimated_delivery": "2025-01-10"}]}` |
-
-When you see `estimated_delivery` in the response, you're hitting v2!
-
 ## Useful Commands
 
 ```bash
