@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: orders-service-fault
+  namespace: istio-demo
+spec:
+  hosts:
+  - orders-service
+  http:
+  - fault:
+      abort:
+        percentage:
+          value: 50
+        httpStatus: 500
+    route:
+    - destination:
+        host: orders-service

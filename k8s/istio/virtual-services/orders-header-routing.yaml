@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: orders-service
+  namespace: istio-demo
+spec:
+  hosts:
+  - orders-service
+  http:
+  - match:
+    - headers:
+        x-version:
+          exact: v2
+    route:
+    - destination:
+        host: orders-service
+        subset: v2
+  - route:
+    - destination:
+        host: orders-service
+        subset: v1

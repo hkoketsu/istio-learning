@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Apply individually as needed:
+#   kubectl apply -f users-delay.yaml
+#   kubectl apply -f orders-abort.yaml
+#
+# Or apply all faults:
+#   kubectl apply -k .
+
+resources:
+  - users-delay.yaml
+  - orders-abort.yaml

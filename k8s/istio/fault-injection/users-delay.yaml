@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: users-service-fault
+  namespace: istio-demo
+spec:
+  hosts:
+  - users-service
+  http:
+  - fault:
+      delay:
+        percentage:
+          value: 100
+        fixedDelay: 3s
+    route:
+    - destination:
+        host: users-service
